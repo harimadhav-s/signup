@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sign Up page</title>
+    <script>
+        function validate()
+        {
+            var fname=document.getElementById("fname");
+            var lname=document.getElementById("lname");
+            var date=document.getElementById("date");
+            var email=document.getElementById("email");
+            var password=document.getElementById("pass");
+            var password1=document.getElementById("pass1");
+            var pass=document.getElementById("pass").value;
+            var pass1=document.getElementById("pass1").value;
+     if(fname.value.trim()=="") 
+     {
+          alert("Blank first name")
+          return false;
+     } 
+     else if(email.value.trim()==""){
+        alert("Blank mail id")
+          return false;
+     }
+     else if(date.value.trim()==""){
+        alert("Blank date of birth")
+          return false;
+     }
+     else if(password.value.trim()==""){
+        alert("Blank password")
+          return false;
+     }
+     else if(password1.value.trim()==""){
+        alert("Blank password")
+          return false;
+     }
+     else if(password.value.trim().length<4){
+        password.style.border="solid 2px red";
+        document.getElementById("lbpass").style.visibility="visible";
+          return false;
+     }
+     else if(pass1!=pass){
+        password1.style.border="solid 2px red";
+        document.getElementById("lb1pass").style.visibility="visible";
+          return false;
+     }
+     else{
+        return true;
+     } 
+        }
+    </script>
+    <style>
+     body{
+    background-image: url('background.png');
+     }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Sign Up</h1>
+        <hr>
+        <form onsubmit="return validate()" action="msg.html">
+            <label>First Name</label><br>
+            <input id="fname" class="fields"type="textbox" name="fname" placeholder="Enter first name">
+           <br><br>
+           <label>Last Name</label><br>
+            <input id="lname"class="fields" type="textbox" name="fname" placeholder="Enter last name">
+           <br><br> 
+           <label>Date of Birth</label><br>    
+           <input id="date" class="fields" type="date"  name="date" placeholder="dd/mm/yyyy" required/>
+           <br><br>
+           <label>Email</label><br>
+           <input id="email" class="fields" type="emai" name="email" placeholder="Enter email">
+           <br><br>
+           <label>Password</label><br>
+           <input id="pass"class="fields" type="password" name="password" placeholder="Enter password">
+           <label id="lbpass" style="color: red; visibility: hidden;">Password too short</label>
+           <br><br>
+           <label>Confirm Password</label><br>
+           <input  id="pass1"class="fields" type="password" name="password" placeholder="Repeat password">
+           <label id="lb1pass" style="color: red; visibility: hidden;">Password not matching</label>       
+           <br><br><br>
+          <button type="submit" class="button">Register</button>
+        </form>
+    </div>
+</body>
+</html>
